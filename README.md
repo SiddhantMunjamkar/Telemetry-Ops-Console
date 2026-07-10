@@ -1,12 +1,8 @@
 # Telemetry Ops Console
 
-Industrial telemetry platform for monitoring a fleet of sensors in real time. A **Node.js backend** ingests telemetry through Kafka, stores it in **TimescaleDB**, and pushes live updates over **Socket.IO**. A **Next.js dashboard** shows fleet health, device metrics, and alerts.
+![System architecture flow](./flow.png)
 
-```
-Simulator → POST /telemetry → Express → Kafka
-                                        ├─ Storage worker  → TimescaleDB
-                                        └─ Analytics worker → Socket.IO → Dashboard
-```
+Industrial telemetry platform for monitoring a fleet of sensors in real time. A **Node.js backend** ingests telemetry through Kafka, stores it in **TimescaleDB**, and pushes live updates over **Socket.IO**. A **Next.js dashboard** shows fleet health, device metrics, and alerts.
 
 | Service | Port | URL |
 |---------|------|-----|
