@@ -1,0 +1,104 @@
+{
+  "alerts": [
+    {
+      "id": "alert-001",
+      "severity": "critical",
+      "deviceId": "dev-004",
+      "deviceName": "Generator Node 7",
+      "title": "Thermal runaway risk",
+      "description": "Casing temperature exceeded 85°C threshold for more than 5 consecutive minutes. Immediate inspection recommended.",
+      "timestamp": "2026-07-10T04:49:00.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-002",
+      "severity": "high",
+      "deviceId": "dev-009",
+      "deviceName": "Motor Drive M14",
+      "title": "Abnormal vibration pattern",
+      "description": "Vibration amplitude reached 3.76 mm/s, indicating potential bearing wear or shaft misalignment.",
+      "timestamp": "2026-07-10T04:47:20.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-003",
+      "severity": "medium",
+      "deviceId": "dev-003",
+      "deviceName": "Turbine West-4",
+      "title": "Elevated operating temperature",
+      "description": "Inlet temperature trending 12% above the 7-day baseline. Monitor for continued rise.",
+      "timestamp": "2026-07-10T04:50:15.000Z",
+      "status": "acknowledged"
+    },
+    {
+      "id": "alert-004",
+      "severity": "medium",
+      "deviceId": "dev-006",
+      "deviceName": "Cooling Unit C9",
+      "title": "Reduced cooling efficiency",
+      "description": "Delta-T across the heat exchanger has dropped below expected range for current load.",
+      "timestamp": "2026-07-10T04:48:45.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-005",
+      "severity": "low",
+      "deviceId": "dev-001",
+      "deviceName": "Compressor Alpha",
+      "title": "Scheduled maintenance due",
+      "description": "Preventive maintenance window opens in 48 hours. No immediate action required.",
+      "timestamp": "2026-07-10T04:30:00.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-006",
+      "severity": "high",
+      "deviceId": "dev-003",
+      "deviceName": "Turbine West-4",
+      "title": "Pressure spike detected",
+      "description": "Discharge pressure briefly exceeded 150 psi during load transition at 04:42 UTC.",
+      "timestamp": "2026-07-10T04:42:00.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-007",
+      "severity": "critical",
+      "deviceId": "dev-007",
+      "deviceName": "Sensor Hub East",
+      "title": "Device unreachable",
+      "description": "Edge collector has not reported telemetry for over 90 minutes. Last heartbeat at 03:12 UTC.",
+      "timestamp": "2026-07-10T03:12:00.000Z",
+      "status": "open"
+    },
+    {
+      "id": "alert-008",
+      "severity": "low",
+      "deviceId": "dev-002",
+      "deviceName": "Pump Station B2",
+      "title": "Firmware update available",
+      "description": "Controller firmware v2.4.1 is available. Update can be scheduled during next maintenance window.",
+      "timestamp": "2026-07-10T03:45:00.000Z",
+      "status": "acknowledged"
+    },
+    {
+      "id": "alert-009",
+      "severity": "medium",
+      "deviceId": "dev-008",
+      "deviceName": "Press Hydraulic 3",
+      "title": "Power draw variance",
+      "description": "Power consumption fluctuating ±8% from baseline during idle periods.",
+      "timestamp": "2026-07-10T04:20:00.000Z",
+      "status": "resolved"
+    },
+    {
+      "id": "alert-010",
+      "severity": "high",
+      "deviceId": "dev-005",
+      "deviceName": "Conveyor Line 12",
+      "title": "Motor current threshold",
+      "description": "Drive motor current exceeded nominal rating during peak load cycle.",
+      "timestamp": "2026-07-10T04:15:00.000Z",
+      "status": "resolved"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "devices": [
+    {
+      "id": "dev-001",
+      "name": "Compressor Alpha",
+      "type": "Industrial Compressor",
+      "status": "healthy",
+      "healthScore": 94,
+      "temperature": 42.3,
+      "pressure": 118.5,
+      "power": 12.4,
+      "vibration": 0.82,
+      "lastUpdated": "2026-07-10T04:52:00.000Z"
+    },
+    {
+      "id": "dev-002",
+      "name": "Pump Station B2",
+      "type": "Centrifugal Pump",
+      "status": "healthy",
+      "healthScore": 88,
+      "temperature": 38.1,
+      "pressure": 92.4,
+      "power": 8.7,
+      "vibration": 1.12,
+      "lastUpdated": "2026-07-10T04:51:30.000Z"
+    },
+    {
+      "id": "dev-003",
+      "name": "Turbine West-4",
+      "type": "Steam Turbine",
+      "status": "warning",
+      "healthScore": 62,
+      "temperature": 67.8,
+      "pressure": 145.2,
+      "power": 24.1,
+      "vibration": 2.45,
+      "lastUpdated": "2026-07-10T04:50:15.000Z"
+    },
+    {
+      "id": "dev-004",
+      "name": "Generator Node 7",
+      "type": "Power Generator",
+      "status": "critical",
+      "healthScore": 31,
+      "temperature": 89.4,
+      "pressure": 178.9,
+      "power": 31.6,
+      "vibration": 4.18,
+      "lastUpdated": "2026-07-10T04:49:00.000Z"
+    },
+    {
+      "id": "dev-005",
+      "name": "Conveyor Line 12",
+      "type": "Belt Conveyor",
+      "status": "healthy",
+      "healthScore": 91,
+      "temperature": 35.6,
+      "pressure": 48.3,
+      "power": 5.2,
+      "vibration": 0.64,
+      "lastUpdated": "2026-07-10T04:52:10.000Z"
+    },
+    {
+      "id": "dev-006",
+      "name": "Cooling Unit C9",
+      "type": "HVAC Chiller",
+      "status": "warning",
+      "healthScore": 58,
+      "temperature": 54.2,
+      "pressure": 86.7,
+      "power": 15.8,
+      "vibration": 1.89,
+      "lastUpdated": "2026-07-10T04:48:45.000Z"
+    },
+    {
+      "id": "dev-007",
+      "name": "Sensor Hub East",
+      "type": "Edge Collector",
+      "status": "offline",
+      "healthScore": 0,
+      "temperature": 0,
+      "pressure": 0,
+      "power": 0,
+      "vibration": 0,
+      "lastUpdated": "2026-07-10T03:12:00.000Z"
+    },
+    {
+      "id": "dev-008",
+      "name": "Press Hydraulic 3",
+      "type": "Hydraulic Press",
+      "status": "healthy",
+      "healthScore": 86,
+      "temperature": 44.7,
+      "pressure": 210.5,
+      "power": 18.3,
+      "vibration": 1.05,
+      "lastUpdated": "2026-07-10T04:51:50.000Z"
+    },
+    {
+      "id": "dev-009",
+      "name": "Motor Drive M14",
+      "type": "Variable Frequency Drive",
+      "status": "critical",
+      "healthScore": 28,
+      "temperature": 72.1,
+      "pressure": 102.8,
+      "power": 22.9,
+      "vibration": 3.76,
+      "lastUpdated": "2026-07-10T04:47:20.000Z"
+    }
+  ]
+}

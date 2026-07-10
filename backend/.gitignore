@@ -1,0 +1,22 @@
+node_modules/
+dist/
+src/**/*.js
+src/**/*.js.map
+
+# env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cursor / AI agent tooling
+.agents/
+.agent/
+.cursor/
+AGENTS.md
+CLAUDE.md
+DESIGN.md
+

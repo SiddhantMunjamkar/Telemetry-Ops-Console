@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies & build output
+node_modules/
+dist/
+.next/
+out/
+build/
+
+# Frontend (my-app) — local agent & design files
+my-app/.agents/
+my-app/.agent/
+my-app/.cursor/
+my-app/AGENTS.md
+my-app/CLAUDE.md
+my-app/DESIGN.md
+my-app/skills-lock.json
+my-app/Untitled
+my-app/Untitled.*
+
+# Backend — compiled output from src/
+backend/dist/
+backend/src/**/*.js
+backend/src/**/*.js.map

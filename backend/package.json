@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Industrial telemetry backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "start": "node dist/server.js",
+    "dev": "npm run build && node dist/server.js",
+    "simulator": "npm run build && node dist/simulator/simulator.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.6",
+    "express": "^5.1.0",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.22.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.14",
+    "@types/pg": "^8.20.0",
+    "typescript": "^5.8.3"
+  }
+}
