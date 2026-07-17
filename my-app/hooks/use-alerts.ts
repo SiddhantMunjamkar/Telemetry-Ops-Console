@@ -64,6 +64,9 @@ export function useAlerts(options: UseAlertsOptions = {}): UseAlertsResult {
   const alertsQuery = useQuery({
     queryKey: queryKeys.alerts,
     queryFn: () => fetchAlerts(),
+    // New alerts arrive instantly over the socket; polling keeps auto-resolved
+    // alert statuses in sync without a page refresh.
+    refetchInterval: 15_000,
   });
 
   useEffect(() => {

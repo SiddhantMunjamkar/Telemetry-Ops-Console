@@ -1,3 +1,5 @@
+import { getPool } from "../../config/db";
+import { processTelemetryAnalytics } from "../../services/analytics.service";
 import { getFleet } from "../../services/device.service";
 import { realtimeService } from "../../services/realtime.service";
 import type { Telemetry } from "../../types/telemetry";
@@ -22,6 +24,7 @@ function parseTelemetryMessage(value: Buffer | null): Telemetry {
 
 export async function startAnalyticsConsumer(): Promise<void> {
   const consumer = createConsumer(CONSUMER_GROUPS.ANALYTICS);
+  const pool = getPool();
 
   await consumer.connect();
   await consumer.subscribe({
@@ -48,6 +51,9 @@ export async function startAnalyticsConsumer(): Promise<void> {
         );
 
         realtimeService.broadcastTelemetryUpdate(toTelemetryUpdatePayload(telemetry));
+
+        // Detect threshold violations, write alerts, update device health.
+        await processTelemetryAnalytics(pool, telemetry);
 
         const fleet = await getFleet();
         realtimeService.broadcastFleetUpdate(fleet.summary);

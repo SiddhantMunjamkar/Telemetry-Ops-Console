@@ -231,6 +231,77 @@ export async function upsertDeviceHealthFromTelemetry(
   );
 }
 
+export async function findActiveAlertTypes(
+  pool: Pool,
+  deviceUuid: string,
+): Promise<string[]> {
+  const result = await pool.query<{ type: string }>(
+    `SELECT DISTINCT type
+     FROM alerts
+     WHERE device_id = $1::uuid AND status = 'active'`,
+    [deviceUuid],
+  );
+
+  return result.rows.map((row) => row.type);
+}
+
+export async function insertAlert(
+  pool: Pool,
+  input: {
+    deviceUuid: string;
+    severity: "info" | "warning" | "critical";
+    type: string;
+    message: string;
+  },
+): Promise<{ id: string; created_at: Date }> {
+  const result = await pool.query<{ id: string; created_at: Date }>(
+    `INSERT INTO alerts (device_id, severity, type, message, status)
+     VALUES ($1::uuid, $2, $3, $4, 'active')
+     RETURNING id::text, created_at`,
+    [input.deviceUuid, input.severity, input.type, input.message],
+  );
+
+  return result.rows[0]!;
+}
+
+export async function resolveActiveAlerts(
+  pool: Pool,
+  deviceUuid: string,
+  types: string[],
+): Promise<void> {
+  if (types.length === 0) {
+    return;
+  }
+
+  await pool.query(
+    `UPDATE alerts
+     SET status = 'resolved', resolved_at = NOW()
+     WHERE device_id = $1::uuid
+       AND status = 'active'
+       AND type = ANY($2::text[])`,
+    [deviceUuid, types],
+  );
+}
+
+export async function updateDeviceHealth(
+  pool: Pool,
+  input: {
+    deviceUuid: string;
+    healthScore: number;
+    status: "healthy" | "warning" | "critical" | "offline";
+  },
+): Promise<void> {
+  await pool.query(
+    `INSERT INTO device_health (device_id, health_score, status, updated_at)
+     VALUES ($1::uuid, $2, $3, NOW())
+     ON CONFLICT (device_id) DO UPDATE SET
+       health_score = EXCLUDED.health_score,
+       status = EXCLUDED.status,
+       updated_at = NOW()`,
+    [input.deviceUuid, input.healthScore, input.status],
+  );
+}
+
 export async function getDeviceUuidBySlug(
   pool: Pool,
   slug: string,

@@ -24,13 +24,20 @@ const statusMap: Record<string, ApiAlert["status"]> = {
   resolved: "resolved",
 };
 
+export function toAlertTitle(type: string): string {
+  return type
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 function mapAlert(row: Awaited<ReturnType<typeof listAlerts>>[number]): ApiAlert {
   return {
     id: row.id,
     severity: severityMap[row.severity] ?? "medium",
     deviceId: toDeviceSlug(row.device_name),
     deviceName: row.device_name,
-    title: row.type,
+    title: toAlertTitle(row.type),
     description: row.message,
     timestamp: row.created_at.toISOString(),
     status: statusMap[row.status] ?? "open",
